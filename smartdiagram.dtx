@@ -137,7 +137,7 @@ and the derived files           smartdiagram.ins,
 %</driver>
 % \fi
 %
-% \CheckSum{1368}
+% \CheckSum{1374}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -491,6 +491,8 @@ and the derived files           smartdiagram.ins,
 %
 % \item \packoption{bubble center node color}{lightgray!60}: this option allows to customize the background color of the bubble center node;
 %
+% \item \packoption{bubble center node border}{lightgray!60}: this option allows to customize the border color of the bubble center node;
+%
 % \item \packoption{distance center/other bubbles}{0.8cm}: this options specifies which is the distance among the bubble center node and the other bubbles; keep this value under controll to avoid that bubbles do not overlap anymore the bubble center node;
 %
 % \item \packoption{distance text center bubble}{0.5cm}: this option sets the distance from the text to the border of the bubble center node;
@@ -502,6 +504,8 @@ and the derived files           smartdiagram.ins,
 % \item \packoption{bubble text opacity}{0.8}: this option sets the opacity at which the bubble text is shown;
 %
 % \item \packoption{bubble node font}{\textbackslash normalfont}: this option sets the font size of the bubbles;
+%
+% \item \packoption{bubble node border}{white}: this option sets the color for the border of the bubbles;
 %
 % \item \packoption{planet size}{2.5cm}: the option specifies the minimum size of the planet;
 %
@@ -1204,12 +1208,14 @@ and the derived files           smartdiagram.ins,
    bubble center node size/.initial={4cm},
    bubble center node font/.initial={\large},
    bubble center node color/.initial={lightgray!60},
+   bubble center node border/.initial={lightgray!60},
    distance center/other bubbles/.initial=0.8cm,
    distance text center bubble/.initial={0.5cm},
    bubble fill opacity/.initial={0.5},
    bubble node size/.initial={2.5cm},
    bubble text opacity/.initial={0.8},
    bubble node font/.initial={\normalfont},
+   bubble node border/.initial={white},
    planet size/.initial={2.5cm},
    planet color/.initial={lightgray!60},
    planet font/.initial={\large},
@@ -1267,12 +1273,14 @@ and the derived files           smartdiagram.ins,
    bubble center node size/.get=\sm@core@bubblecenternodesize,
    bubble center node font/.get=\sm@core@bubblecenternodefont,
    bubble center node color/.get=\sm@core@bubblecenternodecolor,
+   bubble center node border/.get=\sm@core@bubblecenternodeborder,
    distance center/other bubbles/.get=\sm@core@distancecenterotherbubbles,
    distance text center bubble/.get=\sm@core@distancetextcenterbubble,
    bubble fill opacity/.get=\sm@core@bubblefillopacity,
    bubble node size/.get=\sm@core@bubblenodesize,
    bubble text opacity/.get=\sm@core@bubbletextopacity,
    bubble node font/.get=\sm@core@bubblenodefont,
+   bubble node border/.get=\sm@core@bubblenodeborder,
    planet size/.get=\sm@core@planetminimumsize,
    planet color/.get=\sm@core@planetcolor,
    planet font/.get=\sm@core@planetfont,
@@ -1380,12 +1388,14 @@ and the derived files           smartdiagram.ins,
    bubble center node size/.get=\sm@core@bubblecenternodesize,
    bubble center node font/.get=\sm@core@bubblecenternodefont,
    bubble center node color/.get=\sm@core@bubblecenternodecolor,
+   bubble center node border/.get=\sm@core@bubblecenternodeborder,
    distance center/other bubbles/.get=\sm@core@distancecenterotherbubbles,
    distance text center bubble/.get=\sm@core@distancetextcenterbubble,
    bubble fill opacity/.get=\sm@core@bubblefillopacity,
    bubble node size/.get=\sm@core@bubblenodesize,
    bubble text opacity/.get=\sm@core@bubbletextopacity,
    bubble node font/.get=\sm@core@bubblenodefont,
+   bubble node border/.get=\sm@core@bubblenodeborder,
    planet size/.get=\sm@core@planetminimumsize,
    planet color/.get=\sm@core@planetcolor,
    planet font/.get=\sm@core@planetfont,
@@ -1542,6 +1552,7 @@ and the derived files           smartdiagram.ins,
       minimum size=\sm@core@bubblecenternodesize,
       circle,
       fill=\sm@core@bubblecenternodecolor,
+      draw=\sm@core@bubblecenternodeborder,
       font=\sm@core@bubblecenternodefont,
       outer sep=\sm@core@distancecenterotherbubbles,
       inner sep=\sm@core@distancetextcenterbubble,
@@ -1551,7 +1562,7 @@ and the derived files           smartdiagram.ins,
       circle,
 	   ultra thick,
 	   font=\sm@core@bubblenodefont,
-	   draw=white,
+	   draw=\sm@core@bubblenodeborder,
 	   fill opacity=\sm@core@bubblefillopacity,
 	   fill=\col,        
 	   text opacity=\sm@core@bubbletextopacity,
